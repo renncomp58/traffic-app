@@ -13,9 +13,25 @@ export class AccidentsPage implements OnInit {
     constructor(public navCtrl: NavController, public twitterService: TwitterService) {
     }
 
-    ngOnInit() {
-        this.twitterService.getAccidents().subscribe(data=> {
+
+    fetchTweets(){
+       return this.twitterService.getAccidents();
+    }
+
+    doRefresh(refresher) {
+        this.fetchTweets().subscribe(data=> {
             this.accidents = data;
+            refresher.complete();
+            console.log(data);
+        }, error=> {
+
+        });
+    }
+
+    ngOnInit() {
+        this.fetchTweets().subscribe(data=> {
+            this.accidents = data;
+            console.log(data);
         }, error=> {
 
         });

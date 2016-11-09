@@ -1,15 +1,20 @@
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar color="primary">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Jam</ion-title>
+        <ion-title><ion-icon ios="ios-car" md="md-car"></ion-icon>&nbsp;Jam</ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+	<ion-list inset>
+        <ion-item *ngFor="let jm of jam" >
+            {{jm.text}}
+        </ion-item>
+    </ion-list>
 
 </ion-content>

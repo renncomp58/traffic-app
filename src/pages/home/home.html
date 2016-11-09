@@ -1,14 +1,37 @@
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar color="primary">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Home</ion-title>
+        <ion-title text-center="">
+            <ion-icon ios="ios-home" md="md-home"></ion-icon>
+            &nbsp;Home
+        </ion-title>
     </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="home-content">
+
+    <h1 text-center="">
+        <ion-icon ios="ios-car-outline" md="md-car-outline" class="home-car"></ion-icon>
+    </h1>
+    <h2 text-center="" class="introduction"><strong>Traffic App</strong></h2>
+    <p class="introduction">
+        The traffic app simplifies your traffic tweets.
+    </p>
+
+    <p text-justify="" class="introduction">
+        It filters traffic related tweets and gives you a summarized version of the tweets according to the specified
+        categories.
+    </p>
+
+    <!-- Float the icon right -->
+    <button ion-button icon-right full>
+        Click to proceed
+        <ion-icon ios="ios-arrow-dropright-circle" md="md-arrow-dropright-circle"></ion-icon>
+    </button>
+
 
 </ion-content>

@@ -8,10 +8,18 @@ import {TwitterService} from "../../providers/twitter-service";
 })
 export class GeneralPage implements OnInit {
 
-    constructor(public navCtrl: NavController, public twitterService:TwitterService) {
+    general: any
+
+    constructor(public navCtrl: NavController, public twitterService: TwitterService) {
     }
 
     ngOnInit() {
+        this.twitterService.getGeneral().subscribe(data=> {
+            this.general = data;
+            console.log(data);
+        }, error=> {
+
+        });
 
     }
 }

@@ -1,14 +1,22 @@
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar color="primary">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Clear</ion-title>
+        <ion-title>
+            <ion-icon ios="ios-speedometer-outline" md="md-speedometer-outline" class="speedometer-clear"></ion-icon>
+            &nbsp;Clear
+        </ion-title>
     </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let crls of clear" class="clear-text">
+            {{crls.text}}
+        </ion-item>
+    </ion-list>
 
 </ion-content>

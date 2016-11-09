@@ -1,18 +1,36 @@
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar color="primary">
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Accidents</ion-title>
+        <ion-title>
+            <ion-icon ios="ios-warning" md="md-warning"></ion-icon>
+            &nbsp; Accidents
+        </ion-title>
     </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
-    <ion-list inset>
-        <ion-item *ngFor="let accident of accidents" >
-            {{accident.text}}
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-spinner name="bubbles"></ion-spinner>
+
+    <div class="list">
+        <ion-item *ngFor="let accident of accidents">
+            <ion-avatar item-left>
+                <img src="{{accident.user.profile_image_url}}">
+            </ion-avatar>
+            <p class="paragraph-content">
+                {{accident.text}}
+            </p>
+            <ion-card *ngFor="let media of accident.entities.media">
+                <img src="{{media.media_url}}" style="height:5%;">
+            </ion-card>
         </ion-item>
-    </ion-list>
+    </div>
+
 </ion-content>

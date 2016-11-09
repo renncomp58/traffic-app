@@ -2,9 +2,9 @@ import {Component, ViewChild} from '@angular/core';
 import {Nav, Platform} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
 import {HomePage} from "../pages/home/home";
+import {GeneralPage} from "../pages/general/general";
 import {AccidentsPage} from "../pages/accidents/accidents";
 import {ClearPage} from "../pages/clear/clear";
-import {GeneralPage} from "../pages/general/general";
 import {JamPage} from "../pages/jam/jam";
 
 
@@ -23,9 +23,9 @@ export class MyApp {
 
         this.pages = [
             {title: 'Home', component: HomePage},
+            {title: 'General', component: GeneralPage},
             {title: 'Accidents', component: AccidentsPage},
             {title: 'Clear', component: ClearPage},
-            {title: 'General', component: GeneralPage},
             {title: 'Jam', component: JamPage},
         ];
 

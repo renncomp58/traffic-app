@@ -8,11 +8,19 @@ import {TwitterService} from "../../providers/twitter-service";
 })
 export class ClearPage implements OnInit {
 
-    constructor(public navCtrl: NavController, public twitterService:TwitterService) {
+    clear: any;
+
+    constructor(public navCtrl: NavController, public twitterService: TwitterService) {
 
     }
 
     ngOnInit() {
+        this.twitterService.getClear().subscribe(data=> {
+            this.clear = data;
+            console.log(data);
+        }, error=> {
+
+        });
 
     }
 
