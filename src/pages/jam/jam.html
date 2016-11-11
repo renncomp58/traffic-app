@@ -4,16 +4,33 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title><ion-icon ios="ios-car" md="md-car"></ion-icon>&nbsp;Jam</ion-title>
+        <ion-title>
+            <ion-icon ios="ios-car" md="md-car"></ion-icon>
+            &nbsp;Jam
+        </ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-	<ion-list inset>
-        <ion-item *ngFor="let jm of jam" >
-            {{jm.text}}
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-spinner name="bubbles"></ion-spinner>
+
+    <ion-list inset>
+        <ion-item *ngFor="let jm of jam">
+            <ion-avatar item-left>
+                <img src="{{jm.user.profile_image_url}}">
+            </ion-avatar>
+            <p class="paragraph-content">
+                {{jm.text}}
+            </p>
+            <ion-card *ngFor="let media of accident.entities.media">
+                <img src="{{media.media_url}}" class="card-images">
+            </ion-card>
         </ion-item>
     </ion-list>
 

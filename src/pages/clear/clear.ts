@@ -14,8 +14,22 @@ export class ClearPage implements OnInit {
 
     }
 
+        fetchTweets(){
+       return this.twitterService.getClear();
+    }
+
+    doRefresh(refresher) {
+        this.fetchTweets().subscribe(data=> {
+            this.clear = data;
+            refresher.complete();
+            console.log(data);
+        }, error=> {
+
+        });
+    }
+
     ngOnInit() {
-        this.twitterService.getClear().subscribe(data=> {
+        this.fetchTweets().subscribe(data=> {
             this.clear = data;
             console.log(data);
         }, error=> {

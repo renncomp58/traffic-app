@@ -1,14 +1,23 @@
 page-home {
   .home-car {
-    font-size: 40px;
-  }
-  .introduction {
-    font-family: "Aerial";
-    font-size: 18px;
-    font-weight: bold;
-    color: darkslategray;
+    font-size: 45px;
+    color:#000000;
   }
   .home-content {
     background-color:#f7f7f7;
   }
+  .header-app{
+    font-family: "Aharoni";
+    font-size: 18px;
+    font-weight: bold;
+    color: darkslategray;
+  }
+  .introduction {
+    font-family: "Aharoni";
+    font-size: 18px;
+    font-weight: bold;
+    color: darkslategray;
+    height: 8em;
+  }
+
 }

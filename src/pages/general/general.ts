@@ -13,8 +13,22 @@ export class GeneralPage implements OnInit {
     constructor(public navCtrl: NavController, public twitterService: TwitterService) {
     }
 
+    fetchTweets() {
+        return this.twitterService.getGeneral();
+    }
+
+    doRefresh(refresher) {
+        this.fetchTweets().subscribe(data=> {
+            this.general = data;
+            refresher.complete();
+            console.log(data);
+        }, error=> {
+
+        });
+    }
+
     ngOnInit() {
-        this.twitterService.getGeneral().subscribe(data=> {
+        this.fetchTweets().subscribe(data=> {
             this.general = data;
             console.log(data);
         }, error=> {

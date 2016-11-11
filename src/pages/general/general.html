@@ -4,16 +4,33 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title><ion-icon ios="ios-bus" md="md-bus"></ion-icon>&nbsp;General</ion-title>
+        <ion-title>
+            <ion-icon ios="ios-bus" md="md-bus"></ion-icon>
+            &nbsp;General
+        </ion-title>
     </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-	<ion-list inset>
-        <ion-item *ngFor="let gnrl of general" >
-            {{gnrl.text}}
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-spinner name="bubbles"></ion-spinner>
+
+    <ion-list inset>
+        <ion-item *ngFor="let gnrl of general">
+            <ion-avatar item-left>
+                <img src="{{gnrl.user.profile_image_url}}">
+            </ion-avatar>
+            <p class="paragraph-content">
+                {{gnrl.text}}
+            </p>
+            <ion-card *ngFor="let media of gnrl.entities.media">
+                <img src="{{media.media_url}}" style="height:5%;">
+            </ion-card>
         </ion-item>
     </ion-list>
 
