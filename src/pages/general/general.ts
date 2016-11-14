@@ -8,10 +8,29 @@ import {TwitterService} from "../../providers/twitter-service";
 })
 export class GeneralPage implements OnInit {
 
-    general: any
+    general: any;
+
 
     constructor(public navCtrl: NavController, public twitterService: TwitterService) {
+
+
     }
+
+
+    doInfinite(infiniteScroll) {
+        console.log('Begin async operation');
+
+
+        // setTimeout(() => {
+        //     for (var i = 0; i < 20; i++) {
+        //         this.general.fetchTweets(this.general.length);
+        //     }
+        //
+        //     console.log('Async operation has ended');
+        //     infiniteScroll.complete();
+        // }, 500);
+    }
+
 
     fetchTweets() {
         return this.twitterService.getGeneral();

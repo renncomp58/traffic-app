@@ -12,12 +12,12 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content padding>
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-    <ion-spinner name="bubbles"></ion-spinner>
+    <ion-spinner name="bubbles" text-center></ion-spinner>
 
     <div class="list">
         <ion-item *ngFor="let accident of accidents">
