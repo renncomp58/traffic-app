@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {RequestOptions, URLSearchParams, Headers, Response, Http} from '@angular/http';
-import 'rxjs/add/operator/map';
-import {Observable} from "rxjs";
+import {Observable} from "rxjs/Rx";
+import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class TwitterService {
@@ -16,6 +16,9 @@ export class TwitterService {
     getAccidents(): Observable<{}> {
         return this.http.get(`${this.baseUrl}`)
             .map(this.extractData)
+            .map(tweets => {
+                return tweets.filter(tweet => tweet.text.toLowerCase().indexOf("accident") >= 0 )
+            })
             .catch(this.handleErrors);
     }
 
@@ -36,6 +39,10 @@ export class TwitterService {
         return this.http.get(`${this.baseUrl}`)
             .map(this.extractData)
             .catch(this.handleErrors);
+    }
+
+    private filter(param){
+
     }
 
     private extractData(res: Response) {

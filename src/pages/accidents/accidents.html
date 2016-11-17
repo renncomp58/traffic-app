@@ -1,3 +1,4 @@
+<!--Accident page header-->
 <ion-header>
 
     <ion-navbar color="primary">
@@ -11,14 +12,19 @@
     </ion-navbar>
 
 </ion-header>
+<!--End of Header-->
 
+<!--Accident content-->
 <ion-content padding>
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-    <ion-spinner name="bubbles" text-center></ion-spinner>
+    <div *ngIf="show">
+         <p textcenter><ion-spinner name="bubbles"></ion-spinner> Loading</p>   
+    </div>
 
+    <!--Looping the accidents posts-->
     <div class="list">
         <ion-item *ngFor="let accident of accidents">
             <ion-avatar item-left>
@@ -32,5 +38,8 @@
             </ion-card>
         </ion-item>
     </div>
+    <!--End of loop-->
 
 </ion-content>
+<!--End of content-->
+

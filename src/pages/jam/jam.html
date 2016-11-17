@@ -1,3 +1,4 @@
+<!--Jam page header-->
 <ion-header>
 
     <ion-navbar color="primary">
@@ -11,15 +12,23 @@
     </ion-navbar>
 
 </ion-header>
+<!--End of header-->
 
-
+<!--Jam page content-->
 <ion-content padding>
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-    <ion-spinner name="bubbles"></ion-spinner>
+    <!--Loading div-->
+    <div *ngIf="show">
+        <p text-center>
+            <ion-spinner name="bubbles"></ion-spinner>
+            &nbsp;<strong>Loading!!</strong>
+        </p>
+    </div>
 
+    <!--Loop jam content-->
     <ion-list inset>
         <ion-item *ngFor="let jm of jam">
             <ion-avatar item-left>
@@ -33,5 +42,7 @@
             </ion-card>
         </ion-item>
     </ion-list>
+    <!--End of loop-->
 
 </ion-content>
+<!--End of content-->

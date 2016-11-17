@@ -1,3 +1,4 @@
+<!--Clear page header-->
 <ion-header>
 
     <ion-navbar color="primary">
@@ -11,14 +12,23 @@
     </ion-navbar>
 
 </ion-header>
+<!--End of Header-->
 
+<!--Clear page content-->
 <ion-content padding>
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-    <ion-spinner name="bubbles"></ion-spinner>
+    <!--Loading div-->
+    <div *ngIf="show">
+        <p text-center>
+            <ion-spinner name="bubbles"></ion-spinner>
+            &nbsp;<strong>Loading!!</strong>
+        </p>
+    </div>
 
+    <!--Looping the clear page content-->
     <ion-list>
         <ion-item *ngFor="let crls of clear" class="clear-text">
             <ion-avatar item-left>
@@ -33,5 +43,7 @@
         </ion-item>
 
     </ion-list>
+    <!--End of loop-->
 
 </ion-content>
+<!--End of clear page content-->

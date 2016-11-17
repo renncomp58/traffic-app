@@ -9,15 +9,17 @@ import {TwitterService} from "../../providers/twitter-service";
 export class AccidentsPage implements OnInit {
 
     accidents: any;
+    show: boolean;
 
     constructor(public navCtrl: NavController, public twitterService: TwitterService) {
     }
 
-
-    fetchTweets(){
-       return this.twitterService.getAccidents();
+// fetching tweets function
+    fetchTweets() {
+        return this.twitterService.getAccidents();
     }
 
+    //On refreshing the accidents page
     doRefresh(refresher) {
         this.fetchTweets().subscribe(data=> {
             this.accidents = data;
@@ -28,11 +30,16 @@ export class AccidentsPage implements OnInit {
         });
     }
 
+    //On initializing the accidents page
     ngOnInit() {
-        this.fetchTweets().subscribe(data=> {
+         this.show = true;
+        this.twitterService.getAccidents().subscribe(data=> {
             this.accidents = data;
+            this.show = false;
             console.log(data);
         }, error=> {
+
+        this.show = false;
 
         });
     }

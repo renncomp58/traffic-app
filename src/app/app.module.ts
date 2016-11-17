@@ -8,6 +8,7 @@ import {HomePage} from "../pages/home/home";
 import {JamPage} from "../pages/jam/jam";
 import {TwitterService} from "../providers/twitter-service";
 import {JsonpModule} from "@angular/http";
+import {HelpPage} from "../pages/help/help";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {JsonpModule} from "@angular/http";
         ClearPage,
         GeneralPage,
         HomePage,
-        JamPage
+        JamPage,
+        HelpPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -30,7 +32,8 @@ import {JsonpModule} from "@angular/http";
         ClearPage,
         GeneralPage,
         HomePage,
-        JamPage
+        JamPage,
+        HelpPage
     ],
     providers: [TwitterService]
 })
