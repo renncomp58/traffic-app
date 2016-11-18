@@ -24,12 +24,12 @@
     <div *ngIf="show">
         <p text-center>
             <ion-spinner name="bubbles"></ion-spinner>
-            &nbsp;<strong>Loading!!</strong>
+            &nbsp;<strong>Loading...</strong>
         </p>
     </div>
 
     <!--Loop jam content-->
-    <ion-list inset>
+    <ion-list>
         <ion-item *ngFor="let jm of jam">
             <ion-avatar item-left>
                 <img src="{{jm.user.profile_image_url}}">

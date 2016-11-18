@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {TwitterService} from "../../providers/twitter-service";
+import {ToastController} from "ionic-angular";
 
 @Component({
     selector: 'page-general',
@@ -12,7 +13,7 @@ export class GeneralPage implements OnInit {
     show: boolean;
 
 //default constructor
-    constructor(public navCtrl: NavController, public twitterService: TwitterService) {
+    constructor(public navCtrl: NavController, public twitterService: TwitterService,public toastCtrl: ToastController) {
 
 
     }
@@ -58,6 +59,11 @@ export class GeneralPage implements OnInit {
             console.log(data);
         }, error=> {
             console.log('Sorry Something happened');
+            let toast = this.toastCtrl.create({
+                message: 'Sorry something went wrong or No available accidents at this moment',
+                duration: 5000
+            });
+            toast.present();
             this.show = false;
         });
 

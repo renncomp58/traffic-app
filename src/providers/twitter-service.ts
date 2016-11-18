@@ -17,7 +17,9 @@ export class TwitterService {
         return this.http.get(`${this.baseUrl}`)
             .map(this.extractData)
             .map(tweets => {
-                return tweets.filter(tweet => tweet.text.toLowerCase().indexOf("accident") >= 0 )
+                return tweets.filter(tweet => (tweet.text.toLowerCase().indexOf("accident") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("collision") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("accidents") >= 0));
             })
             .catch(this.handleErrors);
     }
@@ -26,6 +28,11 @@ export class TwitterService {
     getClear(): Observable<{}> {
         return this.http.get(`${this.baseUrl}`)
             .map(this.extractData)
+            .map(tweets => {
+                return tweets.filter(tweet => (tweet.text.toLowerCase().indexOf("clear") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("smooth") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("no traffic") >= 0) );
+            })
             .catch(this.handleErrors);
     }
 
@@ -38,6 +45,11 @@ export class TwitterService {
     getJam(): Observable<{}> {
         return this.http.get(`${this.baseUrl}`)
             .map(this.extractData)
+            .map(tweets => {
+                return tweets.filter(tweet => (tweet.text.toLowerCase().indexOf("jam") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("slow") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("heavy traffic") >= 0))
+            })
             .catch(this.handleErrors);
     }
 
