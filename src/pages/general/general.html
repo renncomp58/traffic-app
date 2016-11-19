@@ -34,9 +34,9 @@
             <ion-avatar item-left>
                 <img src="{{gnrl.user.profile_image_url}}">
             </ion-avatar>
-            <p class="paragraph-content">
+            <a class="paragraph-content" href="https://twitter.com/Ma3Route">
                 {{gnrl.text}}
-            </p>
+            </a>
             <ion-card *ngFor="let media of gnrl.entities.media">
                 <img src="{{media.media_url}}" style="height:5%;">
             </ion-card>

@@ -34,9 +34,9 @@
             <ion-avatar item-left>
                 <img src="{{jm.user.profile_image_url}}">
             </ion-avatar>
-            <p class="paragraph-content">
+            <a class="paragraph-content" href="https://twitter.com/Ma3Route">
                 {{jm.text}}
-            </p>
+            </a>
             <ion-card *ngFor="let media of jm.entities.media">
                 <img src="{{media.media_url}}" class="card-images">
             </ion-card>

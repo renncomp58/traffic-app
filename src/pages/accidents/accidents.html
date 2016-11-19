@@ -29,17 +29,17 @@
 
     <!--Looping the accidents posts-->
     <div class="list">
-        <ion-item *ngFor="let accident of accidents">
-            <ion-avatar item-left>
-                <img src="{{accident.user.profile_image_url}}">
-            </ion-avatar>
-            <p class="paragraph-content">
-                {{accident.text}}
-            </p>
-            <ion-card *ngFor="let media of accident.entities.media">
-                <img src="{{media.media_url}}" class="card-images">
-            </ion-card>
-        </ion-item>
+            <ion-item *ngFor="let accident of accidents">
+                <ion-avatar item-left>
+                    <img src="{{accident.user.profile_image_url}}">
+                </ion-avatar>
+                <a class="paragraph-content" href="https://twitter.com/Ma3Route">
+                    {{accident.text}}
+                </a>
+                <ion-card *ngFor="let media of accident.entities.media">
+                    <img src="{{media.media_url}}" class="card-images">
+                </ion-card>
+            </ion-item>
     </div>
     <!--End of loop-->
 

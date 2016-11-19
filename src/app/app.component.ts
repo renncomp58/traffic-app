@@ -28,7 +28,6 @@ export class MyApp {
             {title: 'Accidents', component: AccidentsPage},
             {title: 'Clear', component: ClearPage},
             {title: 'Jam', component: JamPage},
-            {title: 'Help',component: HelpPage}
         ];
 
     }
