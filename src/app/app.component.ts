@@ -7,6 +7,7 @@ import {AccidentsPage} from "../pages/accidents/accidents";
 import {ClearPage} from "../pages/clear/clear";
 import {JamPage} from "../pages/jam/jam";
 import {HelpPage} from "../pages/help/help";
+import {RecklessPage} from "../pages/reckless/reckless";
 
 
 @Component({
@@ -28,6 +29,7 @@ export class MyApp {
             {title: 'Accidents', component: AccidentsPage},
             {title: 'Clear', component: ClearPage},
             {title: 'Jam', component: JamPage},
+            {title: 'Reckless', component: RecklessPage}
         ];
 
     }

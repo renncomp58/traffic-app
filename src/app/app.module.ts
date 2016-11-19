@@ -9,6 +9,7 @@ import {JamPage} from "../pages/jam/jam";
 import {TwitterService} from "../providers/twitter-service";
 import {JsonpModule} from "@angular/http";
 import {HelpPage} from "../pages/help/help";
+import {RecklessPage} from "../pages/reckless/reckless";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {HelpPage} from "../pages/help/help";
         GeneralPage,
         HomePage,
         JamPage,
-        HelpPage
+        HelpPage,
+        RecklessPage
     ],
     imports: [
         IonicModule.forRoot(MyApp),
@@ -33,7 +35,8 @@ import {HelpPage} from "../pages/help/help";
         GeneralPage,
         HomePage,
         JamPage,
-        HelpPage
+        HelpPage,
+        RecklessPage
     ],
     providers: [TwitterService]
 })

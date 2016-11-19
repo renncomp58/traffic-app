@@ -1,0 +1,48 @@
+<!--Jam page header-->
+<ion-header>
+
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <ion-icon ios="ios-car" md="md-car"></ion-icon>
+            &nbsp;Reckless Driving
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+<!--End of header-->
+
+<!--Jam page content-->
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <!--Loading div-->
+    <div *ngIf="show">
+        <p text-center>
+            <ion-spinner name="bubbles"></ion-spinner>
+            &nbsp;<strong>Loading...</strong>
+        </p>
+    </div>
+
+    <!--Loop jam content-->
+    <ion-list>
+        <ion-item *ngFor="let reck of reckless">
+            <ion-avatar item-left>
+                <img src="{{reck.user.profile_image_url}}">
+            </ion-avatar>
+            <a class="paragraph-content" href="https://twitter.com/Ma3Route">
+                {{reck.text}}
+            </a>
+            <ion-card *ngFor="let media of reck.entities.media">
+                <img src="{{media.media_url}}" class="card-images">
+            </ion-card>
+        </ion-item>
+    </ion-list>
+    <!--End of loop-->
+
+</ion-content>
+<!--End of content-->

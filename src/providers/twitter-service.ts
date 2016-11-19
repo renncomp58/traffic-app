@@ -53,6 +53,17 @@ export class TwitterService {
             .catch(this.handleErrors);
     }
 
+    getReckless(): Observable<{}> {
+        return this.http.get(`${this.baseUrl}`)
+            .map(this.extractData)
+            .map(tweets => {
+                return tweets.filter(tweet => (tweet.text.toLowerCase().indexOf("overlapping") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("speed") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("careless") >= 0))
+            })
+            .catch(this.handleErrors);
+    }
+
     private filter(param){
 
     }
