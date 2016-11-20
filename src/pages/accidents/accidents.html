@@ -5,10 +5,14 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>
+        <ion-title text-center="">
             <ion-icon ios="ios-warning" md="md-warning"></ion-icon>
             &nbsp; Accidents
         </ion-title>
+
+        <button ion-button menuToggle right (click)="openModal({charNum: 0})">
+            <ion-icon name="md-help"></ion-icon>
+        </button>
     </ion-navbar>
 
 </ion-header>
@@ -21,25 +25,25 @@
     </ion-refresher>
 
     <div *ngIf="show">
-         <p text-center>
+        <p text-center>
             <ion-spinner name="bubbles"></ion-spinner>
             &nbsp;<strong>Loading...</strong>
-         </p>   
+        </p>
     </div>
 
     <!--Looping the accidents posts-->
     <div class="list">
-            <ion-item *ngFor="let accident of accidents">
-                <ion-avatar item-left>
-                    <img src="{{accident.user.profile_image_url}}">
-                </ion-avatar>
-                <a class="paragraph-content" href="https://twitter.com/Ma3Route">
-                    {{accident.text}}
-                </a>
-                <ion-card *ngFor="let media of accident.entities.media">
-                    <img src="{{media.media_url}}" class="card-images">
-                </ion-card>
-            </ion-item>
+        <ion-item *ngFor="let accident of accidents">
+            <ion-avatar item-left>
+                <img src="{{accident.user.profile_image_url}}">
+            </ion-avatar>
+            <a class="paragraph-content" href="https://twitter.com/Ma3Route">
+                {{accident.text}}
+            </a>
+            <ion-card *ngFor="let media of accident.entities.media">
+                <img src="{{media.media_url}}" class="card-images">
+            </ion-card>
+        </ion-item>
     </div>
     <!--End of loop-->
 

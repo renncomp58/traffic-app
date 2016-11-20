@@ -5,10 +5,14 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>
+        <ion-title text-center="">
             <ion-icon ios="ios-speedometer-outline" md="md-speedometer-outline" class="speedometer-clear"></ion-icon>
             &nbsp;Clear
         </ion-title>
+
+        <button ion-button menuToggle right (click)="openModal({charNum: 0})">
+            <ion-icon name="md-help"></ion-icon>
+        </button>
     </ion-navbar>
 
 </ion-header>

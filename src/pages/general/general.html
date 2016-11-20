@@ -5,10 +5,14 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>
+        <ion-title text-center="">
             <ion-icon ios="ios-bus" md="md-bus"></ion-icon>
             &nbsp;General
         </ion-title>
+
+        <button ion-button menuToggle right (click)="openModal({charNum: 0})">
+            <ion-icon name="md-help"></ion-icon>
+        </button>
     </ion-navbar>
 
 </ion-header>
@@ -23,7 +27,8 @@
     <!--Loading div-->
     <div *ngIf="show">
         <p text-center>
-            <ion-spinner name="bubbles"></ion-spinner>&nbsp;<strong>Loading...</strong>
+            <ion-spinner name="bubbles"></ion-spinner>
+            &nbsp;<strong>Loading...</strong>
         </p>
     </div>
 

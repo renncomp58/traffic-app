@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {NavController} from 'ionic-angular';
-import {TwitterService} from "../../providers/twitter-service";
-import {ToastController} from "ionic-angular";
+import { Component, OnInit } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { TwitterService } from "../../providers/twitter-service";
+import { ToastController } from "ionic-angular";
+import { ModalController, Platform, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
     selector: 'page-general',
@@ -13,25 +14,8 @@ export class GeneralPage implements OnInit {
     show: boolean;
 
 //default constructor
-    constructor(public navCtrl: NavController, public twitterService: TwitterService,public toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController, public twitterService: TwitterService, public toastCtrl: ToastController, public modalCtrl: ModalController) {}
 
-
-    }
-
-
-    doInfinite(infiniteScroll) {
-        console.log('Begin async operation');
-
-
-        // setTimeout(() => {
-        //     for (var i = 0; i < 20; i++) {
-        //         this.general.fetchTweets(this.general.length);
-        //     }
-        //
-        //     console.log('Async operation has ended');
-        //     infiniteScroll.complete();
-        // }, 500);
-    }
 
     //Fetching general tweets function
     fetchTweets() {
@@ -67,5 +51,63 @@ export class GeneralPage implements OnInit {
             this.show = false;
         });
 
+    }
+
+
+    //modal function
+    openModal(characterNum) {
+        let modal = this.modalCtrl.create(ModalContentGeneralPage, characterNum);
+        modal.present();
+    }
+}
+
+// General modal component
+@Component({
+    template: `
+<ion-header>
+  <ion-toolbar color ="secondary">
+    <ion-title>
+      OfflineHelp
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+      	Close
+        &nbsp;<ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding >
+<ion-list>
+<ion-item>
+<div>
+        <img src="{{character.generalimage}}" style="height:300px;">
+     </div>
+        <h2>{{character.generalpagename}}</h2>
+        <p style="white-space: normal;">{{character.generaldescription}}</p>
+</ion-item>
+</ion-list>
+</ion-content>
+`
+})
+export class ModalContentGeneralPage {
+    character;
+
+    constructor(public platform: Platform,
+                public params: NavParams,
+                public viewCtrl: ViewController) {
+        var characters = [
+            {
+                generalpagename: 'General Page ',
+                generaldescription: 'General page shows all categories of tweets.',
+                generalimage: 'assets/images/general.png',
+            },
+
+        ];
+        this.character = characters[this.params.get('charNum')];
+    }
+
+    dismiss() {
+        this.viewCtrl.dismiss();
     }
 }

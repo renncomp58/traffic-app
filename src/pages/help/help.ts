@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ModalController } from 'ionic-angular';
+
 
 @Component({
   selector: 'page-help',
@@ -8,7 +8,7 @@ import { ModalController } from 'ionic-angular';
 })
 export class HelpPage {
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {}
+  constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
     console.log('Hello HelpPage Page');

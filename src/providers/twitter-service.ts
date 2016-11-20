@@ -31,7 +31,8 @@ export class TwitterService {
             .map(tweets => {
                 return tweets.filter(tweet => (tweet.text.toLowerCase().indexOf("clear") >= 0) ||
                 (tweet.text.toLowerCase().indexOf("smooth") >= 0) ||
-                (tweet.text.toLowerCase().indexOf("no traffic") >= 0) );
+                (tweet.text.toLowerCase().indexOf("no traffic") >= 0) ||
+                (tweet.text.toLowerCase().indexOf("clean") >= 0))
             })
             .catch(this.handleErrors);
     }
