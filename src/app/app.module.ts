@@ -14,6 +14,8 @@ import { ModalContentHomePage } from "../pages/home/home";
 import { ModalContentAccidentPage } from "../pages/accidents/accidents";
 import { ModalContentGeneralPage } from "../pages/general/general";
 import { ModalContentClearPage } from "../pages/clear/clear";
+import { ModalContentJamPage } from "../pages/jam/jam";
+import { ModalContentRecklessPage } from "../pages/reckless/reckless";
 
 
 
@@ -31,7 +33,8 @@ import { ModalContentClearPage } from "../pages/clear/clear";
         ModalContentAccidentPage,
         ModalContentGeneralPage,
         ModalContentClearPage,
-        ModalContentJamPage
+        ModalContentJamPage,
+        ModalContentRecklessPage
 
     ],
     imports: [
@@ -52,7 +55,8 @@ import { ModalContentClearPage } from "../pages/clear/clear";
         ModalContentAccidentPage,
         ModalContentGeneralPage,
         ModalContentClearPage,
-        ModalContentJamPage
+        ModalContentJamPage,
+        ModalContentRecklessPage
     ],
     providers: [TwitterService]
 })
