@@ -7,7 +7,8 @@ import {ModalController, Platform, NavParams, ViewController} from 'ionic-angula
     templateUrl: 'home.html'
 })
 export class HomePage {
-    constructor(public navCtrl: NavController, public modalCtrl: ModalController) {}
+    constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+    }
 
     openModal(characterNum) {
         let modal = this.modalCtrl.create(ModalContentHomePage, characterNum);
@@ -56,15 +57,6 @@ export class HomePage {
 
 </ion-item>
 </ion-list>
-	
-      <!--<ion-list>-->
-      <!--<ion-item>-->
-        <!--{{item.title}}-->
-        <!--<ion-note item-right>-->
-          <!--{{item.note}}-->
-        <!--</ion-note>-->
-        <!--</ion-item>-->
-        <!--</ion-list>-->
 </ion-content>
 `
 })
@@ -81,23 +73,15 @@ export class ModalContentHomePage {
                 homeimage: 'assets/images/home.png',
                 menuname: 'MenuButton ',
                 menudescription: 'Click menu to access the Traffic updates category',
-                menuimage: 'assets/img/home_menu.jpg',
+                menuimage: 'assets/images/home_menu.png',
                 proceedname: 'ProceedButton ',
                 proceeddescription: 'Click proceed button to access the traffic categories',
-                proceedimage: 'assets/img/home_proceed.jpg',
+                proceedimage: 'assets/images/home_proceed.png',
+                menusidename: 'Menu sidebar',
+                menusidedescription: 'side menu gives you access to all the application categories',
+                menusideimage: 'assets/images/menu.png',
             },
 
-
-            // {
-            //     name: 'Samwise Gamgee',
-            //     quote: 'What we need is a few good taters.',
-            //     image: 'assets/img/avatar-samwise.jpg',
-            //     items: [
-            //         { title: 'Race', note: 'Hobbit' },
-            //         { title: 'Culture', note: 'Shire Folk' },
-            //         { title: 'Nickname', note: 'Sam' }
-            //     ]
-            // }
         ];
         this.character = characters[this.params.get('charNum')];
     }

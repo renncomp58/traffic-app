@@ -94,7 +94,7 @@ export class ModalContentRecklessPage {
     var characters = [
       {
         recklesspagename: 'Reckless Page ',
-        recklessdescription: 'Reckless page shows tweets that explain that the road is clear.',
+        recklessdescription: 'Reckless page shows tweets that show reckless driving.',
         recklessimage: 'assets/images/reckless.png',
       },
 

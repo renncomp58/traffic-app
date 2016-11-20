@@ -95,9 +95,9 @@ export class ModalContentJamPage {
                 public viewCtrl: ViewController) {
         var characters = [
             {
-                jampagename: 'Clear Page ',
-                jamdescription: 'Clear page shows tweets that explain that the road is clear.',
-                jamimage: 'assets/images/clear.png',
+                jampagename: 'Jam Page ',
+                jamdescription: 'Jam page shows tweets regarding traffic jams .',
+                jamimage: 'assets/images/jam.png',
             },
 
         ];
